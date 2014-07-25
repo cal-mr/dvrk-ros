@@ -1,0 +1,128 @@
+digraph graphname {
+	graph [rankdir=LR, rank=same];
+	node [label="\N"];
+	graph [bb="0,0,2594,1451.4"];
+	subgraph cluster_dvrk_mtm {
+		graph [label=dvrk_mtm,
+			bb="524,1012,1860,1360"];
+		_dvrk_mtm_joint_state_publisher_enable_slider [label="/dvrk_mtm/joint_state_publisher/enable_slider", URL=topic_3A_dvrk_mtm_joint_state_publisher_enable_slider, shape=box, pos="699,1308", width="4.6389", height="0.5"];
+		_dvrk_mtm_gripper_position [label="/dvrk_mtm/gripper_position", URL=topic_3A_dvrk_mtm_gripper_position, shape=box, pos="699,1038", width="2.8611", height="0.5"];
+		_dvrk_mtm_joint_states [label="/dvrk_mtm/joint_states", URL=topic_3A_dvrk_mtm_joint_states, shape=box, pos="1382,1120", width="2.4444", height="0.5"];
+		_dvrk_mtm_joint_states_command [label="/dvrk_mtm/joint_states_command", URL=topic_3A_dvrk_mtm_joint_states_command, shape=box, pos="699,1200", width="3.4444", height="0.5"];
+		_dvrk_mtm_cartesian_pose_command [label="/dvrk_mtm/cartesian_pose_command", URL=topic_3A_dvrk_mtm_cartesian_pose_command, shape=box, pos="699,1146", width="3.75", height="0.5"];
+		_dvrk_mtm_control_mode [label="/dvrk_mtm/control_mode", URL=topic_3A_dvrk_mtm_control_mode, shape=box, pos="699,1254", width="2.6111", height="0.5"];
+		_dvrk_mtm_cartesian_pose_current [label="/dvrk_mtm/cartesian_pose_current", URL=topic_3A_dvrk_mtm_cartesian_pose_current, shape=box, pos="699,1092", width="3.5556", height="0.5"];
+		_dvrk_mtm_robot_state_publisher [label="/dvrk_mtm/robot_state_publisher", URL=_dvrk_mtm_robot_state_publisher, shape=ellipse, pos="1679,1038", width="4.8056", height="0.51389"];
+		_dvrk_mtm_joint_state_publisher [label="/dvrk_mtm/joint_state_publisher", URL=_dvrk_mtm_joint_state_publisher, shape=ellipse, pos="1080,1120", width="4.6944", height="0.51389"];
+		_dvrk_mtm_joint_states_command -> _dvrk_mtm_joint_state_publisher [pos="e,938,1129.8 823.51,1187.7 838.2,1184 852.69,1179.2 866,1173 885.14,1164.1 882.69,1150.6 902,1142 910.36,1138.3 919.15,1135.2 928.16,1132.5"];
+		_dvrk_mtm_joint_states -> _dvrk_mtm_robot_state_publisher [pos="e,1535.9,1048.2 1462.8,1101.8 1465.3,1100.6 1467.7,1099.4 1470,1098 1490.1,1086.3 1485.3,1070.5 1506,1060 1512.5,1056.7 1519.3,1053.8 1526.3,1051.3"];
+		_dvrk_mtm_joint_state_publisher -> _dvrk_mtm_joint_states [pos="e,1293.8,1120 1249.1,1120 1260.9,1120 1272.5,1120 1283.7,1120"];
+	}
+	subgraph cluster_dvrk_psm {
+		graph [label=dvrk_psm,
+			bb="526,440,1858,788"];
+		_dvrk_psm_joint_states_command [label="/dvrk_psm/joint_states_command", URL=topic_3A_dvrk_psm_joint_states_command, shape=box, pos="699,466", width="3.3889", height="0.5"];
+		_dvrk_psm_control_mode [label="/dvrk_psm/control_mode", URL=topic_3A_dvrk_psm_control_mode, shape=box, pos="699,574", width="2.5556", height="0.5"];
+		_dvrk_psm_set_position_joint [label="/dvrk_psm/set_position_joint", URL=topic_3A_dvrk_psm_set_position_joint, shape=box, pos="699,736", width="2.9444", height="0.5"];
+		_dvrk_psm_joint_states [label="/dvrk_psm/joint_states", URL=topic_3A_dvrk_psm_joint_states, shape=box, pos="1382,733", width="2.3889", height="0.5"];
+		_dvrk_psm_cartesian_pose_current [label="/dvrk_psm/cartesian_pose_current", URL=topic_3A_dvrk_psm_cartesian_pose_current, shape=box, pos="699,682", width="3.5", height="0.5"];
+		_dvrk_psm_joint_state_publisher_enable_slider [label="/dvrk_psm/joint_state_publisher/enable_slider", URL=topic_3A_dvrk_psm_joint_state_publisher_enable_slider, shape=box, pos="699,520", width="4.5833", height="0.5"];
+		_dvrk_psm_cartesian_pose_command [label="/dvrk_psm/cartesian_pose_command", URL=topic_3A_dvrk_psm_cartesian_pose_command, shape=box, pos="699,628", width="3.6944", height="0.5"];
+		_dvrk_psm_robot_state_publisher [label="/dvrk_psm/robot_state_publisher", URL=_dvrk_psm_robot_state_publisher, shape=ellipse, pos="1679,733", width="4.75", height="0.51389"];
+		_dvrk_psm_joint_state_publisher [label="/dvrk_psm/joint_state_publisher", URL=_dvrk_psm_joint_state_publisher, shape=ellipse, pos="1080,684", width="4.6389", height="0.51389"];
+		_dvrk_psm_joint_state_publisher -> _dvrk_psm_joint_states [pos="e,1304.5,714.98 1197,696.92 1217.4,699.61 1238.4,702.65 1258,706 1269.9,708.03 1282.4,710.43 1294.7,712.94"];
+		_dvrk_psm_joint_states_command -> _dvrk_psm_joint_state_publisher [pos="e,924.45,677.39 821.6,468.27 838.07,473.32 853.55,481.16 866,493 921.63,545.94 845.39,610.11 902,662 906.23,665.88 910.78,669.31 915.57,672.35"];
+		_dvrk_psm_joint_states -> _dvrk_psm_robot_state_publisher [pos="e,1507.8,733 1468.3,733 1477.7,733 1487.6,733 1497.7,733"];
+	}
+	subgraph cluster_joint_states {
+		graph [label=joint_states,
+			bb="8,1109,282,1187"];
+		_joint_states_joint_position_current [label="/joint_states/joint_position_current", URL=topic_3A_joint_states_joint_position_current, shape=box, pos="145,1135", width="3.5556", height="0.5"];
+	}
+	subgraph cluster_dvrk_footpedal {
+		graph [label=dvrk_footpedal,
+			bb="585,796,813,874"];
+		_dvrk_footpedal_clutch_state [label="/dvrk_footpedal/clutch_state", URL=topic_3A_dvrk_footpedal_clutch_state, shape=box, pos="699,822", width="2.9444", height="0.5"];
+	}
+	subgraph cluster_dvrk_teleop {
+		graph [label=dvrk_teleop,
+			bb="615,882,1160,960"];
+		_dvrk_teleop_enable [label="/dvrk_teleop/enable", URL=topic_3A_dvrk_teleop_enable, shape=box, pos="699,908", width="2.1111", height="0.5"];
+		_dvrk_teleop [label="/dvrk_teleop", URL=_dvrk_teleop, shape=ellipse, pos="1080,908", width=2, height="0.51389"];
+		_dvrk_teleop_enable -> _dvrk_teleop [pos="e,1007.8,908 775.19,908 839.5,908 931.4,908 997.45,908"];
+	}
+	subgraph cluster_move_base_simple {
+		graph [label=move_base_simple,
+			bb="2270,8,2468,86"];
+		_move_base_simple_goal [label="/move_base_simple/goal", URL=topic_3A_move_base_simple_goal, shape=box, pos="2369,34", width="2.5278", height="0.5"];
+	}
+	_tf_static [label="/tf_static", URL=topic_3A_tf_static, shape=box, pos="1927,112", width="1.0556", height="0.5"];
+	_joint_states [label="/joint_states", URL=topic_3A_joint_states, shape=box, pos="1382,407", width="1.3889", height="0.5"];
+	_rosout [label="/rosout", URL=_rosout, shape=ellipse, pos="2369,795", width="1.2778", height="0.51389"];
+	_rosout_agg [label="/rosout_agg", URL=topic_3A_rosout_agg, shape=box, pos="2545,795", width="1.3611", height="0.5"];
+	_clicked_point [label="/clicked_point", URL=topic_3A_clicked_point, shape=box, pos="2369,166", width="1.5", height="0.5"];
+	_initialpose [label="/initialpose", URL=topic_3A_initialpose, shape=box, pos="2369,112", width="1.25", height="0.5"];
+	_tf [label="/tf", URL=topic_3A_tf, shape=box, pos="1927,730", width="0.75", height="0.5"];
+	_dvrk_teleop_gui [label="/dvrk_teleop_gui", URL=_dvrk_teleop_gui, shape=ellipse, pos="403,908", width="2.5556", height="0.51389"];
+	_robot_state_publisher [label="/robot_state_publisher", URL=_robot_state_publisher, shape=ellipse, pos="1679,414", width="3.3611", height="0.51389"];
+	_mtm_kinematics [label="/mtm_kinematics", URL=_mtm_kinematics, shape=ellipse, pos="1080,1386", width="2.6389", height="0.51389"];
+	_rostopic_11616_1406244449550 [label="/rostopic_11616_1406244449550", URL=_rostopic_11616_1406244449550, shape=ellipse, pos="1080,986", width="4.9444", height="0.51389"];
+	_rviz [label="/rviz", URL=_rviz, shape=ellipse, pos="2122,112", width="0.91667", height="0.51389"];
+	_rqt_gui_py_node_386 [label="/rqt_gui_py_node_386", URL=_rqt_gui_py_node_386, shape=ellipse, pos="2122,166", width="3.3333", height="0.51389"];
+	_joint_state_publisher [label="/joint_state_publisher", URL=_joint_state_publisher, shape=doublecircle, color=red, pos="1080,312", width="3.3333", height="3.3472"];
+	_psm_kinematics [label="/psm_kinematics", URL=_psm_kinematics, shape=ellipse, pos="1080,814", width="2.5556", height="0.51389"];
+	_actual_psm_jp [label="/actual_psm_jp", URL=_actual_psm_jp, shape=ellipse, pos="403,1135", width="2.3056", height="0.51389"];
+	_joint_states -> _robot_state_publisher [pos="e,1559.3,411.18 1432.7,408.2 1464.9,408.95 1508,409.97 1549.2,410.94"];
+	_psm_kinematics -> _dvrk_psm_joint_states_command [pos="e,821.74,467.02 1004.6,824.38 968.8,824.9 928.27,818.35 902,792 807.5,697.21 958.71,589.54 866,493 856.26,482.86 844.32,475.56 831.35,470.41"];
+	_psm_kinematics -> _dvrk_psm_cartesian_pose_current [pos="e,825.16,688.25 994.14,820.48 962.5,818.74 928.06,811.49 902,792 869.8,767.91 897.74,733.68 866,709 856.58,701.68 845.95,696 834.72,691.62"];
+	_psm_kinematics -> _dvrk_psm_joint_state_publisher_enable_slider [pos="e,855.78,538.13 1003.5,824.1 968.15,824.36 928.28,817.68 902,792 823.29,715.07 943.26,625.38 866,547 865.2,546.19 864.39,545.4 863.56,544.62"];
+	_psm_kinematics -> _rosout [pos="e,2323.5,798.24 1172.1,814 1289.7,814 1499.5,814 1679,814 1679,814 1679,814 1927,814 2066.2,814 2229.8,804.48 2313.5,798.92"];
+	_tf_static -> _rviz [pos="e,2088.7,112 1965.5,112 1998.1,112 2044.8,112 2078.7,112"];
+	_dvrk_psm_cartesian_pose_current -> _dvrk_teleop_gui [pos="e,408.28,889.75 572.58,687.94 555.33,692.53 538.57,699.27 524,709 461.76,750.56 426.27,836.04 411.38,880.22"];
+	_dvrk_psm_cartesian_pose_current -> _dvrk_teleop [pos="e,1017.7,917.1 825.06,685.24 840.26,690.32 854.46,697.91 866,709 923.9,764.61 843.07,831.48 902,886 929.89,911.8 971.64,918.01 1007.7,917.43"];
+	_dvrk_mtm_joint_states -> _mtm_kinematics [pos="e,1159.5,1395.9 1298,1138.1 1296.6,1139.3 1295.3,1140.6 1294,1142 1226.4,1215.6 1330,1294.7 1258,1364 1234.8,1386.3 1201.4,1394.2 1169.7,1395.7"];
+	_mtm_kinematics -> _dvrk_mtm_joint_state_publisher_enable_slider [pos="e,755.78,1326.1 994.49,1378 965.03,1374.6 931.93,1369.9 902,1364 855.88,1354.8 804.87,1340.8 765.52,1329"];
+	_mtm_kinematics -> _dvrk_mtm_joint_states_command [pos="e,823.65,1203.6 996.6,1394.7 963.61,1393.6 927.55,1386.3 902,1364 854.6,1322.6 912.62,1269.3 866,1227 856.48,1218.4 845.32,1211.9 833.38,1207.1"];
+	_mtm_kinematics -> _rosout [pos="e,2365,813.21 1174.9,1385 1293,1383.8 1500.9,1382 1679,1382 1679,1382 1679,1382 1927,1382 2210.3,1382 2334.7,940.3 2362.7,823.21"];
+	_mtm_kinematics -> _dvrk_mtm_cartesian_pose_current [pos="e,827.29,1095.2 1001.2,1396.1 966.47,1396.1 927.72,1389.1 902,1364 823.29,1287.1 943.26,1197.4 866,1119 857.54,1110.4 847.51,1103.9 836.62,1099"];
+	_rostopic_11616_1406244449550 -> _rosout [pos="e,2347.3,811.11 1192.3,972 1233.1,966.99 1274,962.07 1294,960 1464.8,942.31 1507.3,927 1679,927 1679,927 1679,927 1927,927 2069.3,927 2108.7,919.62 2242,870 2277.4,856.82 2314.2,833.91 2339,816.86"];
+	_dvrk_mtm_gripper_position -> _psm_kinematics [pos="e,1008.6,825.57 769.44,1020 802.29,1008.5 839.81,990.73 866,964 895,934.4 871.96,906.54 902,878 928.44,852.89 965.43,837.52 998.84,828.16"];
+	_dvrk_psm_cartesian_pose_command -> _psm_kinematics [pos="e,999.32,822.74 832.8,634.85 844.96,639.67 856.32,646.22 866,655 912.62,697.31 854.6,750.56 902,792 925.59,812.62 958.14,820.43 988.95,822.32"];
+	_dvrk_mtm_cartesian_pose_command -> _mtm_kinematics [pos="e,999.44,1395.6 834.66,1152.7 846.24,1157.6 856.95,1164.2 866,1173 927.87,1233.3 839.01,1304.9 902,1364 925.15,1385.7 958.1,1393.6 989.36,1395.3"];
+	_joint_states_joint_position_current -> _actual_psm_jp [pos="e,319.32,1135 273.62,1135 285.63,1135 297.64,1135 309.24,1135"];
+	_dvrk_teleop_enable -> _rostopic_11616_1406244449550 [pos="e,956.1,973.05 755.78,926.06 796.19,938.33 851.98,954.06 902,964 916.14,966.81 931,969.32 945.84,971.55"];
+	_tf -> _rviz [pos="e,2089.2,109.86 1928.1,711.9 1933.8,617.33 1962.3,182.62 2002,139 2021.2,117.87 2053.1,111.45 2079.2,110.13"];
+	_dvrk_psm_control_mode -> _psm_kinematics [pos="e,1002.2,823.64 791.67,569.66 818.75,573.07 846.33,581.84 866,601 927.87,661.28 839.01,732.88 902,792 925.76,814.31 959.85,822.05 991.85,823.41"];
+	_dvrk_mtm_cartesian_pose_current -> _dvrk_teleop_gui [pos="e,411.11,925.97 570.77,1083.9 554.34,1079.5 538.29,1073.4 524,1065 471.64,1034.1 433.91,971.03 415.57,934.95"];
+	_dvrk_mtm_cartesian_pose_current -> _dvrk_teleop [pos="e,1016.6,899.47 827.39,1087.1 841.58,1082.2 854.89,1075 866,1065 912.06,1023.3 855.18,970.79 902,930 930.1,905.52 970.83,899.12 1006.2,899.25"];
+	_dvrk_psm_robot_state_publisher -> _tf [pos="e,1899.9,730.33 1849.2,730.94 1864.1,730.76 1877.9,730.59 1889.7,730.45"];
+	_dvrk_psm_robot_state_publisher -> _rosout [pos="e,2323.5,791.95 1791.2,746.62 1822.5,750.23 1856.6,753.95 1888,757 2041.8,771.9 2223.7,785.06 2313.3,791.25"];
+	_dvrk_psm_joint_state_publisher -> _rosout [pos="e,2338.1,781.61 1247.2,684 1367.3,684 1533.1,684 1679,684 1679,684 1679,684 1927,684 2079.1,684 2252.1,746.62 2328.8,777.79"];
+	_dvrk_footpedal_clutch_state -> _dvrk_teleop [pos="e,1011.5,902.48 747.55,840.06 788.26,854.54 848.2,874.3 902,886 934.26,893.02 970.33,898 1001.5,901.42"];
+	_rosout -> _rosout_agg [pos="e,2496,795 2415.2,795 2436.9,795 2462.9,795 2486,795"];
+	_actual_psm_jp -> _dvrk_psm_set_position_joint [pos="e,592.74,750.61 413.12,1117.1 432.11,1082.9 473.21,1005.1 496,935 516.02,873.41 480.95,840.38 524,792 539.68,774.38 560.9,762.27 583.15,753.95"];
+	_actual_psm_jp -> _rosout [pos="e,2366.2,813.2 406.62,1153 416.55,1197.3 448.65,1311.7 524,1364 728.51,1506 831.05,1432 1080,1432 1080,1432 1080,1432 1927,1432 2083.2,1432 2143.2,1397 2242,1276 2300.6,1204.2 2350.2,915.02 2364.7,823.16"];
+	_dvrk_psm_joint_states -> _psm_kinematics [pos="e,1172.1,814.36 1301.6,751.02 1299,752.26 1296.5,753.59 1294,755 1274.1,766.44 1278.5,781.79 1258,792 1234.9,803.5 1208,809.85 1182.3,813.19"];
+	_rviz -> _clicked_point [pos="e,2314.3,154.03 2152.8,118.73 2190.5,126.98 2255.5,141.19 2304.4,151.88"];
+	_rviz -> _rosout [pos="e,2366.7,776.9 2154.9,110.23 2182.1,110.66 2219.6,115.94 2242,139 2286.9,185.32 2349.7,646.88 2365.4,766.7"];
+	_rviz -> _move_base_simple_goal [pos="e,2284,52.052 2148.1,100.83 2177.3,88.603 2226.4,69.01 2270,56 2271.4,55.575 2272.9,55.154 2274.3,54.737"];
+	_rviz -> _initialpose [pos="e,2323.1,112 2155.1,112 2195.4,112 2264.4,112 2313.1,112"];
+	_dvrk_mtm_robot_state_publisher -> _tf [pos="e,1912.3,748.25 1693.8,1019.7 1735.9,967.34 1856.8,817.24 1905.9,756.24"];
+	_dvrk_mtm_robot_state_publisher -> _rosout [pos="e,2363.2,813.05 1852,1038.9 1992.7,1036.6 2178.2,1026.1 2242,988 2305.6,950 2343.5,866.37 2359.7,822.73"];
+	_joint_state_publisher -> _joint_states [pos="e,1331.2,391.01 1195,348.19 1238,361.7 1285.1,376.52 1321.3,387.9"];
+	_joint_state_publisher -> _rosout [pos="e,2365.8,776.7 1200.4,318.7 1321.3,324.85 1513,333 1679,333 1679,333 1679,333 1927,333 2084.2,333 2135,378.83 2242,494 2317.8,575.55 2352,709 2363.9,766.82"];
+	_dvrk_mtm_joint_state_publisher -> _rosout [pos="e,2355.5,812.49 1205.6,1107.9 1223.3,1105.2 1241.2,1101.9 1258,1098 1447.9,1053.5 1483.9,974 1679,974 1679,974 1679,974 1927,974 2069.7,974 2114.7,976.54 2242,912 2286.1,889.63 2326.1,847.52 2349,820.39"];
+	_rosout -> _rosout [pos="e,2398.1,809.42 2339.9,809.42 2329.7,820.17 2339.4,831 2369,831 2389.8,831 2400.8,825.64 2401.9,818.73"];
+	_rqt_gui_py_node_386 -> _rosout [pos="e,2367.6,776.81 2212.1,178.05 2223.3,182.79 2233.7,189.25 2242,198 2322,282.2 2358.1,659.98 2366.8,766.79"];
+	_dvrk_mtm_control_mode -> _mtm_kinematics [pos="e,990.95,1392.3 793.14,1253 818.89,1256.8 845.37,1265 866,1281 897.74,1305.7 869.8,1339.9 902,1364 924.43,1380.8 953.07,1388.5 980.79,1391.4"];
+	_dvrk_teleop_gui -> _dvrk_mtm_control_mode [pos="e,604.76,1259 412.88,925.95 431.46,960.36 471.89,1038.3 496,1108 513.77,1159.3 484.11,1190.1 524,1227 543.13,1244.7 568.77,1253.6 594.52,1257.7"];
+	_dvrk_teleop_gui -> _dvrk_mtm_joint_state_publisher_enable_slider [pos="e,534.43,1289.9 413.49,926.07 432.9,960.36 474.42,1037.7 496,1108 518.86,1182.5 468.72,1226.1 524,1281 524.82,1281.8 525.65,1282.6 526.49,1283.4"];
+	_dvrk_teleop_gui -> _rosout [pos="e,2366.6,776.8 405.88,889.81 418.37,812.66 469.63,512.82 524,436 640.79,270.99 708.57,241.76 902,183 1261.8,73.715 2151.8,253.73 2242,334 2308.4,393.06 2352.5,675.65 2365.2,766.68"];
+	_dvrk_teleop_gui -> _dvrk_teleop_enable [pos="e,622.85,908 495.84,908 533.19,908 576.01,908 612.68,908"];
+	_dvrk_teleop_gui -> _dvrk_psm_control_mode [pos="e,606.39,570.87 404.15,889.87 408.6,836.09 429.57,676.46 524,601 544.35,584.74 570.41,576.28 596.16,572.25"];
+	_robot_state_publisher -> _tf [pos="e,1923.2,711.94 1789.5,406.58 1815.2,410.11 1840.7,418.62 1860,436 1865,440.53 1905.7,629.65 1921.1,702.13"];
+	_robot_state_publisher -> _rosout [pos="e,2353.7,777.56 1792.7,420.28 1815.4,423.62 1838.8,428.6 1860,436 2048,501.51 2085.1,547.37 2242,670 2281.8,701.08 2322.4,743.31 2346.7,769.85"];
+	_dvrk_teleop -> _dvrk_psm_cartesian_pose_command [pos="e,832.53,633.36 1018.5,917.51 980.04,919.77 932.19,915.25 902,886 827.37,813.7 939.26,728.68 866,655 858.86,647.81 850.6,642.08 841.67,637.52"];
+	_dvrk_teleop -> _dvrk_mtm_cartesian_pose_command [pos="e,834.64,1139.3 1018,898.79 979.79,896.78 932.45,901.47 902,930 839.6,988.46 927.3,1059.4 866,1119 859.42,1125.4 851.96,1130.6 843.93,1134.9"];
+	_dvrk_teleop -> _rosout [pos="e,2333.6,806.55 1149.1,902.67 1260.6,894.54 1486.9,880 1679,880 1679,880 1679,880 1927,880 2074.4,880 2244.6,833.83 2324,809.54"];
+}
