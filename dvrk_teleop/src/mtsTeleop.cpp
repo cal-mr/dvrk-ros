@@ -75,6 +75,7 @@ void mtsTeleop::Run(void)
 
     if (is_enabled_ != 0) {
 
+        cout << "Teleop Mode!!!" << endl;
         // assign current psm pose
         psm_pose_cmd_.Assign(psm_pose_cur_);
 
@@ -105,13 +106,13 @@ void mtsTeleop::Run(void)
         mtm_pose_cmd_.Rotation().FromNormalized(mtm_rot_cmd);
     }
 
-    mtsCISSTToROS(psm_pose_cmd_, msg_psm_pose_);
-    pub_psm_pose_.publish(msg_psm_pose_);
     if (goal_set_) {
-        mtsCISSTToROS(mtm_pose_cmd_, msg_mtm_pose_);
-        pub_mtm_pose_.publish(msg_mtm_pose_);
+        mtsCISSTToROS(psm_pose_cmd_, msg_psm_pose_);
+        pub_psm_pose_.publish(msg_psm_pose_);
         goal_set_ = false;
     }
+    mtsCISSTToROS(mtm_pose_cmd_, msg_mtm_pose_);
+    pub_mtm_pose_.publish(msg_mtm_pose_);
     // save current pose as previous
     mtm_pose_pre_.Assign(mtm_pose_cur_);
 
