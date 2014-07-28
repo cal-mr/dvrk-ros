@@ -2,7 +2,7 @@
 
 #include <ros/ros.h>
 #include <sensor_msgs/JointState.h>
-#include <geometry_msgs/Pose.h>
+#include <geometry_msgs/PoseStamped.h>
 #include <std_msgs/Float32.h>
 #include <std_msgs/Int8.h>
 
@@ -44,8 +44,8 @@ protected slots:
     void slot_moveToolButton_pressed(bool state);
 
 protected:
-    void master_pose_cb(const geometry_msgs::PoseConstPtr &msg);
-    void slave_pose_cb(const geometry_msgs::PoseConstPtr &msg);
+    void master_pose_cb(const geometry_msgs::PoseStamped &msg);
+    void slave_pose_cb(const geometry_msgs::PoseStamped &msg);
 
     vctFrm4x4 mtm_pose_cur_;
     vctFrm4x4 psm_pose_cur_;

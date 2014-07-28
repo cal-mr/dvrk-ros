@@ -384,7 +384,7 @@ int main(int argc, char ** argv)
                                          "one_outer_wrist_open_angle_joint_1"};
 //    std::string jointNamesPSM_array[] = {'one_outer_yaw_joint', 'one_outer_pitch_joint_1', 'one_outer_pitch_joint_2', 'one_outer_pitch_joint_3', 'one_outer_pitch_joint_4', 'one_outer_pitch_joint_5', 'one_outer_insertion_joint', 'one_outer_roll_joint', 'one_outer_wrist_pitch_joint', 'one_outer_wrist_yaw_joint', 'one_outer_wrist_open_angle_joint_1', 'one_outer_wrist_open_angle_joint_2', 'two_outer_yaw_joint', 'two_outer_pitch_joint_1', 'two_outer_pitch_joint_2', 'two_outer_pitch_joint_3', 'two_outer_pitch_joint_4', 'two_outer_pitch_joint_5', 'two_outer_insertion_joint', 'two_outer_roll_joint', 'two_outer_wrist_pitch_joint', 'two_outer_wrist_yaw_joint', 'two_outer_wrist_open_angle_joint_1', 'two_outer_wrist_open_angle_joint_2'};
     std::vector< std::string > jointNamesPSM( jointNamesPSM_array, jointNamesPSM_array + ( sizeof ( jointNamesPSM_array ) /  sizeof ( std::string ) ) );
-    rosBridge.AddJointPublisher("PSM1", "GetPositionJoint2", "PSM2", "GetPositionJoint2", jointNamesPSM);
+    rosBridge.AddJointPublisher("PSM1", "GetPositionJoint", "PSM2", "GetPositionJoint", jointNamesPSM);
 
     rosBridge.AddPublisherFromReadCommandStamped("PSM1", "GetPositionCartesian", "/dvrk_psm1/joint_position_cartesian", "/two_remote_center_link");
     rosBridge.AddPublisherFromReadCommandStamped("PSM2", "GetPositionCartesian", "/dvrk_psm2/joint_position_cartesian", "/one_remote_center_link");

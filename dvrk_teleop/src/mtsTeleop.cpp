@@ -37,6 +37,7 @@ mtsTeleop::mtsTeleop(const std::string &name, const double &period):
     pub_mtm_pose_ = nh_.advertise<geometry_msgs::Pose>("/dvrk_mtm/cartesian_pose_command", 1);
     pub_psm_pose_ = nh_.advertise<geometry_msgs::Pose>("/dvrk_psm/cartesian_pose_command", 1);
     goal_set_ = false;
+
 }
 
 void mtsTeleop::Configure(const std::string &)
@@ -130,16 +131,17 @@ void mtsTeleop::Run(void)
 void mtsTeleop::Cleanup(void) {
 }
 
-void mtsTeleop::teleop_enable_cb(const std_msgs::BoolConstPtr &msg)
+void mtsTeleop::teleop_enable_cb(const std_msgs::Bool &msg)
 {
-    cout << "enable" << &msg << endl;
-    is_enabled_ = msg->data;
+    // cout << "enable " << msg << endl;
+    mtsROSToCISST(msg, is_enabled_);
+    // is_enabled_ = msg;
 }
 
-void mtsTeleop::master_pose_cb(const geometry_msgs::PoseConstPtr &msg)
+void mtsTeleop::master_pose_cb(const geometry_msgs::PoseStamped &msg)
 {
     counter_master_cb_++;
-    mtsROSToCISST((*msg), mtm_pose_cur_);
+    mtsROSToCISST(msg, mtm_pose_cur_);
 
     // initialize mtm_pose_pre_
     if (counter_master_cb_ == 1) {
@@ -147,17 +149,18 @@ void mtsTeleop::master_pose_cb(const geometry_msgs::PoseConstPtr &msg)
     }
 }
 
-void mtsTeleop::slave_pose_cb(const geometry_msgs::PoseConstPtr &msg)
+void mtsTeleop::slave_pose_cb(const geometry_msgs::PoseStamped &msg)
 {
     counter_slave_cb_++;
-    mtsROSToCISST((*msg), psm_pose_cur_);
+    mtsROSToCISST(msg, psm_pose_cur_);
 }
 
-void mtsTeleop::footpedal_clutch_cb(const std_msgs::BoolConstPtr &msg)
+void mtsTeleop::footpedal_clutch_cb(const std_msgs::Bool &msg)
 {
     has_clutch_ = true;
     // here
-    if (msg->data == true) {
+    mtsROSToCISST(msg, clutch_buffer);
+    if (clutch_buffer == true) {
         is_clutch_pressed_ = false;
     } else {
         is_clutch_pressed_ = true;

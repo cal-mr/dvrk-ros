@@ -7,7 +7,7 @@ using namespace std;
 #include <ros/ros.h>
 #include <ros/package.h>
 #include <sensor_msgs/JointState.h>
-#include <geometry_msgs/Pose.h>
+#include <geometry_msgs/PoseStamped.h>
 #include <std_msgs/Float32.h>
 #include <std_msgs/Int8.h>
 
@@ -30,7 +30,7 @@ int control_mode;
 
 
 // command psm pose from teleop
-void psm_cmd_pose_cb(const geometry_msgs::Pose &msg)
+void psm_cmd_pose_cb(const geometry_msgs::PoseStamped &msg)
 {
     mtsROSToCISST(msg, psm_pose_command);
 }
@@ -95,7 +95,7 @@ int main(int argc, char** argv)
     ros::Publisher pub_psm_joint_state_cmd =
             nh.advertise<sensor_msgs::JointState>("/dvrk_psm/joint_states_command", 1);
     ros::Publisher pub_psm_pose_current =
-            nh.advertise<geometry_msgs::Pose>("/dvrk_psm/cartesian_pose_current", 1);
+            nh.advertise<geometry_msgs::PoseStamped>("/dvrk_psm/cartesian_pose_current", 1);
     ros::Publisher pub_psm_enable_slider =
             nh.advertise<sensor_msgs::JointState>("/dvrk_psm/joint_state_publisher/enable_slider", 100);    
 
@@ -126,7 +126,7 @@ int main(int argc, char** argv)
     msg_js.name.push_back(robot_name + "_outer_wrist_yaw_joint");
     msg_js.name.push_back(robot_name + "_outer_wrist_open_angle_joint_1");
 
-    geometry_msgs::Pose msg_pose;
+    geometry_msgs::PoseStamped msg_pose;
 
     int count = 0;
     control_mode = PSM::MODE_RESET;  // start with reset_mode

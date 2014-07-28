@@ -187,14 +187,14 @@ void dvrkTeleopQWidget::timerEvent(QTimerEvent *)
 }
 
 
-void dvrkTeleopQWidget::master_pose_cb(const geometry_msgs::PoseConstPtr &msg)
+void dvrkTeleopQWidget::master_pose_cb(const geometry_msgs::PoseStamped &msg)
 {
-    mtsROSToCISST((*msg), mtm_pose_cur_);
+    mtsROSToCISST(msg, mtm_pose_cur_);
 }
 
-void dvrkTeleopQWidget::slave_pose_cb(const geometry_msgs::PoseConstPtr &msg)
+void dvrkTeleopQWidget::slave_pose_cb(const geometry_msgs::PoseStamped &msg)
 {
-    mtsROSToCISST((*msg), psm_pose_cur_);
+    mtsROSToCISST(msg, psm_pose_cur_);
 }
 
 
