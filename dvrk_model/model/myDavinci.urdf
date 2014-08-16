@@ -19,7 +19,7 @@
   <joint name="one_fixed_joint" type="fixed">
     <parent link="camera"/>
     <child link="one_remote_center_link"/>
-    <origin rpy="0.0 0.0 3.1415926" xyz="-0.25 0.0 0.5"/>
+    <origin rpy="0.026 0.204 -2.927" xyz="-0.015 -0.015 0.492"/>
   </joint>
   <link name="one_remote_center_link"/>
   <joint name="one_rc_fixed_joint" type="fixed">
@@ -225,7 +225,7 @@
     <axis xyz="0 0 1"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <limit effort="1000" lower="-1.5707" upper="1.5707" velocity=".4"/>
-    <mimic joint="one_outer_wrist_open_angle_joint_1" multiplier="-1"/>
+    <!--<mimic joint="${prefix}outer_wrist_open_angle_joint_1" multiplier="-1"/> -->
   </joint>
   <link name="one_tool_wrist_sca_ee_link_2">
     <visual>
@@ -234,6 +234,30 @@
         <mesh filename="package://dvrk_model/meshes/psm/tool_wrist_sca_link_2.dae"/>
       </geometry>
     </visual>
+  </link>
+  <joint name="one_fake_joint_1" type="fixed">
+    <limit effort="1000.0" lower="0.0" upper="3.1415" velocity="0.5"/>
+    <origin rpy="0 0 1.5708" xyz="0 0 0"/>
+    <parent link="one_tool_wrist_sca_shaft_link"/>
+    <child link="one_tool_base_link"/>
+  </joint>
+  <link name="one_tool_base_link">
+  </link>
+  <joint name="one_fake_joint_2" type="fixed">
+    <limit effort="1000.0" lower="0.0" upper="3.1415" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0.00483 0 0"/>
+    <parent link="one_tool_base_link"/>
+    <child link="one_tool_middle_link"/>
+  </joint>
+  <link name="one_tool_middle_link">
+  </link>
+  <joint name="one_fake_joint_3" type="fixed">
+    <limit effort="1000.0" lower="0.0" upper="3.1415" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0.00483 0 0"/>
+    <parent link="one_tool_middle_link"/>
+    <child link="one_tool_tip_link"/>
+  </joint>
+  <link name="one_tool_tip_link">
   </link>
   <joint name="two_fixed_joint" type="fixed">
     <parent link="camera"/>
@@ -444,7 +468,7 @@
     <axis xyz="0 0 1"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <limit effort="1000" lower="-1.5707" upper="1.5707" velocity=".4"/>
-    <mimic joint="two_outer_wrist_open_angle_joint_1" multiplier="-1"/>
+    <!--<mimic joint="${prefix}outer_wrist_open_angle_joint_1" multiplier="-1"/> -->
   </joint>
   <link name="two_tool_wrist_sca_ee_link_2">
     <visual>
@@ -453,6 +477,30 @@
         <mesh filename="package://dvrk_model/meshes/psm/tool_wrist_sca_link_2.dae"/>
       </geometry>
     </visual>
+  </link>
+  <joint name="two_fake_joint_1" type="fixed">
+    <limit effort="1000.0" lower="0.0" upper="3.1415" velocity="0.5"/>
+    <origin rpy="0 0 1.5708" xyz="0 0 0"/>
+    <parent link="two_tool_wrist_sca_shaft_link"/>
+    <child link="two_tool_base_link"/>
+  </joint>
+  <link name="two_tool_base_link">
+  </link>
+  <joint name="two_fake_joint_2" type="fixed">
+    <limit effort="1000.0" lower="0.0" upper="3.1415" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0.00483 0 0"/>
+    <parent link="two_tool_base_link"/>
+    <child link="two_tool_middle_link"/>
+  </joint>
+  <link name="two_tool_middle_link">
+  </link>
+  <joint name="two_fake_joint_3" type="fixed">
+    <limit effort="1000.0" lower="0.0" upper="3.1415" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0.00483 0 0"/>
+    <parent link="two_tool_middle_link"/>
+    <child link="two_tool_tip_link"/>
+  </joint>
+  <link name="two_tool_tip_link">
   </link>
 </robot>
 

@@ -363,11 +363,6 @@ int main(int argc, char ** argv)
 
 //    const std::vector<std::string> jointNamesPSM1;
 
-
-
-
-
-
     std::string jointNamesPSM_array[] = {"two_outer_yaw_joint",
                                          "two_outer_pitch_joint_1",
                                          "two_outer_insertion_joint",
@@ -422,13 +417,16 @@ int main(int argc, char ** argv)
                 "PSM2", "SetOpenAngle", "/dvrk_psm2/set_gripper_position");
 
 
-    ///////////////////////////  Coag & Clutch //////////////////////////////////////
+    ///////////////////////////  Coag, Clutch & Scale //////////////////////////////////////
 
     rosBridge.AddPublisherFromEventWriteContinuous<prmEventButton, std_msgs::Bool>(
                 "COAG", "Button", "/dvrk_pedal/coag");
     rosBridge.AddPublisherFromEventWriteContinuous<prmEventButton, std_msgs::Bool>(
                 "CLUTCH", "Button", "/dvrk_pedal/clutch");
-
+    rosBridge.AddPublisherFromReadCommand<double, std_msgs::Float32>(
+                "SCALE1", "GetScale", "/dvrk_pedal/scale1");
+    rosBridge.AddPublisherFromReadCommand<double, std_msgs::Float32>(
+                "SCALE2", "GetScale", "/dvrk_pedal/scale2");
 
     componentManager->AddComponent(&rosBridge);
     componentManager->Connect(rosBridge.GetName(), "MTML", "MTML", "Robot");
@@ -437,7 +435,9 @@ int main(int argc, char ** argv)
     componentManager->Connect(rosBridge.GetName(), "PSM2", "PSM2", "Robot");
     componentManager->Connect(rosBridge.GetName(), "CLUTCH", "io", "CLUTCH");
     componentManager->Connect(rosBridge.GetName(), "COAG", operatorPresentComponent, operatorPresentInterface);
-
+    componentManager->Connect(rosBridge.GetName(), "CLUTCH", "io", "CLUTCH");
+    componentManager->Connect(rosBridge.GetName(), "SCALE1", "MTMR-PSM1", "Scale");
+    componentManager->Connect(rosBridge.GetName(), "SCALE2", "MTMR-PSM2", "Scale");
 
     // show all widgets
     tabWidget->show();
