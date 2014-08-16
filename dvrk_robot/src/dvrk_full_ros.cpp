@@ -435,9 +435,9 @@ int main(int argc, char ** argv)
     componentManager->Connect(rosBridge.GetName(), "PSM2", "PSM2", "Robot");
     componentManager->Connect(rosBridge.GetName(), "CLUTCH", "io", "CLUTCH");
     componentManager->Connect(rosBridge.GetName(), "COAG", operatorPresentComponent, operatorPresentInterface);
-    componentManager->Connect(rosBridge.GetName(), "CLUTCH", "io", "CLUTCH");
+//    componentManager->Connect(rosBridge.GetName(), "CLUTCH", "io", "CLUTCH");
     componentManager->Connect(rosBridge.GetName(), "SCALE1", "MTMR-PSM1", "Scale");
-    componentManager->Connect(rosBridge.GetName(), "SCALE2", "MTMR-PSM2", "Scale");
+    componentManager->Connect(rosBridge.GetName(), "SCALE2", "MTML-PSM2", "Scale");
 
     // show all widgets
     tabWidget->show();
