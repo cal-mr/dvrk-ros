@@ -320,6 +320,8 @@ int main(int argc, char ** argv)
         componentManager->Connect(tele->GetName(), "Slave", psm->Name(), "Robot");
         componentManager->Connect(tele->GetName(), "Clutch", "io", "CLUTCH");
         componentManager->Connect(tele->GetName(), "OperatorPresent", operatorPresentComponent, operatorPresentInterface);
+        componentManager->Connect(tele->GetName(), "CAM+", "io", "CAM+");
+        componentManager->Connect(tele->GetName(), "CAM-", "io", "CAM-");
     }
 
     // configure data collection if needed
@@ -411,6 +413,11 @@ int main(int argc, char ** argv)
     rosBridge.AddPublisherFromReadCommand<double, std_msgs::Float32>(
                 "MTMR", "GetGripperPosition", "/dvrk_mtmr/gripper_position");
 
+    rosBridge.AddPublisherFromReadCommand<double, std_msgs::Float32>(
+                "PSM1", "GetOpenAngle", "/dvrk_psm1/gripper_position");
+    rosBridge.AddPublisherFromReadCommand<double, std_msgs::Float32>(
+                "PSM2", "GetOpenAngle", "/dvrk_psm2/gripper_position");
+
     rosBridge.AddSubscriberToWriteCommand<double, std_msgs::Float32>(
                 "PSM1", "SetOpenAngle", "/dvrk_psm1/set_gripper_position");
     rosBridge.AddSubscriberToWriteCommand<double, std_msgs::Float32>(
@@ -435,7 +442,6 @@ int main(int argc, char ** argv)
     componentManager->Connect(rosBridge.GetName(), "PSM2", "PSM2", "Robot");
     componentManager->Connect(rosBridge.GetName(), "CLUTCH", "io", "CLUTCH");
     componentManager->Connect(rosBridge.GetName(), "COAG", operatorPresentComponent, operatorPresentInterface);
-//    componentManager->Connect(rosBridge.GetName(), "CLUTCH", "io", "CLUTCH");
     componentManager->Connect(rosBridge.GetName(), "SCALE1", "MTMR-PSM1", "Scale");
     componentManager->Connect(rosBridge.GetName(), "SCALE2", "MTML-PSM2", "Scale");
 
